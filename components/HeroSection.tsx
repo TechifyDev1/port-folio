@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Badge } from './ui/badge'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowDown, ArrowRight, Github, Linkedin, Twitter } from 'lucide-react'
+import Image from 'next/image'
 
 export default function HeroSection() {
     const phrases = [
@@ -43,7 +44,7 @@ export default function HeroSection() {
                 animate={{ scale: 1, opacity: 0.12 }}
                 transition={{ duration: 1.5, ease: 'easeInOut' }}
             >
-                <img
+                <Image
                     src="/avatar.png"
                     alt="Avatar Blob"
                     className="w-[600px] h-[700px] object-cover shadow-2xl border border-transparent "
@@ -65,7 +66,7 @@ export default function HeroSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4, duration: 0.7, type: "spring" }}
                 >
-                    Hi, I'm <span className='bg-gradient-to-r from-accent via-cta to-primary bg-clip-text text-transparent text-shine'>Abdulqudus</span>
+                    Hi, I&apos;m <span className='bg-gradient-to-r from-accent via-cta to-primary bg-clip-text text-transparent text-shine'>Abdulqudus</span>
                 </motion.h1>
                 <motion.h2
                     className='text-3xl font-semibold mt-4 flex flex-wrap justify-center items-center gap-2 px-2'
