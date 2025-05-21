@@ -34,13 +34,13 @@ export const metadata: Metadata = {
     "Backend Engineer",
     "Software Engineer Portfolio"
   ],
-  authors: [{ name: "TechifyDev", url: "https://your-portfolio-url.com" }],
+  authors: [{ name: "TechifyDev", url: "https://port-folio-9dxv.vercel.app" }],
   creator: "TechifyDev",
   openGraph: {
     title: "TechifyDev | Full-Stack Engineer",
     description:
       "Building clean mobile & web experiences with Flutter, Next.js, and Java backends.",
-    url: "https://your-portfolio-url.com",
+    url: "https://port-folio-9dxv.vercel.app",
     siteName: "TechifyDev",
     images: [
       {
@@ -87,7 +87,7 @@ export default function RootLayout({
         <meta property="og:title" content="TechifyDev | Full-Stack Engineer" />
         <meta property="og:description" content="Building clean mobile & web experiences with Flutter, Next.js, and Java backends." />
         <meta property="og:image" content="/avatar.png" />
-        <meta property="og:url" content="https://your-portfolio-url.com" />
+        <meta property="og:url" content="https://port-folio-9dxv.vercel.app" />
         <meta property="og:type" content="website" />
 
         {/* Twitter */}
