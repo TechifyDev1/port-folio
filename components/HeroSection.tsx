@@ -6,9 +6,9 @@ import { ArrowDown, ArrowRight, Github, Linkedin, Twitter } from 'lucide-react'
 
 export default function HeroSection() {
     const phrases = [
-        <span className="text-accent font-bold">Mobile Apps with Flutter</span>,
-        <span className="text-cta font-bold">Web Applications with Next.js</span>,
-        <span className="text-primary font-bold">Robust Backends with Java</span>,
+        <span key="flutter" className="text-accent font-bold">Mobile Apps with Flutter</span>,
+        <span key="nextjs" className="text-cta font-bold">Web Applications with Next.js</span>,
+        <span key="java" className="text-primary font-bold">Robust Backends with Java</span>,
     ]
 
     const [index, setIndex] = useState(0)

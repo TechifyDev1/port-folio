@@ -17,7 +17,7 @@ const ContactSection = () => {
           <Card className="border-primary/20">
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold mb-6 flex items-center">
-                <MessageSquare className="mr-2 h-5 w-5 text-primary" /> Let's Talk
+                <MessageSquare className="mr-2 h-5 w-5 text-primary" /> Let&#39;s Talk
               </h3>
               
               <form onSubmit={()=>{}} className="space-y-6">
@@ -66,7 +66,7 @@ const ContactSection = () => {
               <div>
                 <h3 className="text-2xl font-bold mb-4">Contact Information</h3>
                 <p className="text-muted-foreground mb-6">
-                  Feel free to reach out if you're looking for a developer, have a question, or just want to connect.
+                  Feel free to reach out if you&#39;re looking for a developer, have a question, or just want to connect.
                 </p>
               </div>
               

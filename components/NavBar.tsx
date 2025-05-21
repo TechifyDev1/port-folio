@@ -1,7 +1,7 @@
 "use client"
 
 import { Menu } from "lucide-react";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 
 export default function NavBar() {
