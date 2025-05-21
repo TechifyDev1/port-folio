@@ -8,6 +8,7 @@ import ProjectsSection from "@/components/ProjectSection";
 
 export default function Home() {
   return (
+    <>
     <main className="relative bg-black-100">
       <NavBar />
       {/* <div className="flex flex-wrap gap-2">
@@ -23,5 +24,6 @@ export default function Home() {
       <ContactSection />
       <Footer />
     </main>
+    </>
   );
 }
