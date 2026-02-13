@@ -1,60 +1,86 @@
+"use client"
 import React from 'react';
-import { Card, CardContent } from "@/components/ui/card";
+import { motion } from 'framer-motion';
+import { Briefcase, Code, GraduationCap } from 'lucide-react';
 
 const experiences = [
   {
-    position: 'Senior Frontend Developer',
-    company: 'TechGrowth Inc.',
-    period: 'Jan 2023 - Present',
-    description: 'Lead the development of a Next.js-based SaaS platform. Improved performance by 40% through code optimization and implemented responsive designs across all devices.',
+    position: 'Project manager',
+    company: 'Oaks & Acorns',
+    period: 'Feb 2025 - Present',
+    description: 'Lead the development of a CMS platform Improved performance by 40% through code optimization and implemented responsive designs across all devices.',
   },
   {
     position: 'Frontend Developer',
-    company: 'WebSolutions Co.',
-    period: 'Mar 2021 - Dec 2022',
-    description: 'Developed and maintained multiple React applications. Collaborated with designers to implement pixel-perfect UI. Introduced TypeScript to improve code quality.',
+    company: 'Demz Agency',
+    period: '- - -',
+    description: 'Developed and maintained Nextjs applications. Collaborated with designers to implement pixel-perfect UI.',
   },
   {
-    position: 'Junior Web Developer',
-    company: 'CreativeTech',
-    period: 'May 2020 - Feb 2021',
-    description: 'Built responsive websites using HTML, CSS, and JavaScript. Assisted in developing React components and integrating REST APIs.',
+    position: 'Shopify store developer',
+    company: 'Muuds By 2702',
+    period: 'July 2025 - March 2026',
+    description: 'Edited and implemented custom design on a premium theme',
   }
 ];
 
 const ExperienceSection = () => {
   return (
-    <section id="experience" className="py-20 px-4 bg-background/90 backdrop-blur-lg shadow-lg">
-      <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 bg-gradient-to-r from-accent via-cta to-primary bg-clip-text text-transparent text-shine text-center">Work Experience</h2>
-        
-        <div className="relative max-w-3xl mx-auto">
-          {/* Timeline Line */}
-          <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-primary/30"></div>
-          
-          {/* Experience Cards */}
+    <section id="experience" className="py-18 bg-background border-y border-slate-800/50">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-base text-primary font-semibold tracking-wide uppercase"
+          >
+            Career Path
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-2 text-3xl leading-8 font-bold tracking-tight text-white sm:text-4xl"
+          >
+            Work Experience
+          </motion.p>
+        </div>
+
+        <div className="relative">
+          {/* Vertical Line */}
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/50 via-primary/20 to-transparent md:left-1/2 md:-ml-0.5"></div>
+
           {experiences.map((exp, index) => (
-            <div 
-              key={index} 
-              className={`relative mb-12 ${index % 2 === 0 ? 'md:pr-12 md:text-right md:ml-0 md:mr-auto' : 'md:pl-12 md:ml-auto md:mr-0'} md:w-1/2 animate-fade-in`}
-              style={{ animationDelay: `${index * 0.2}s` }}
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              className="relative mb-12"
             >
-              {/* Timeline Dot */}
-              <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-primary"></div>
-              
-              <Card className="border-primary/20 hover:border-primary/50 transition-colors">
-                <CardContent className="p-6">
-                  <div className="mb-2 text-sm text-muted-foreground">{exp.period}</div>
-                  <h3 className="text-xl font-bold">{exp.position}</h3>
-                  <h4 className="text-primary mb-4">{exp.company}</h4>
-                  <p className="text-sm text-muted-foreground">{exp.description}</p>
-                </CardContent>
-              </Card>
-            </div>
+              <div className="flex flex-col md:flex-row items-start">
+                {/* Timeline Icon */}
+                <div className="flex items-center justify-center w-16 h-16 rounded-full bg-secondary border-2 border-primary z-10 md:absolute md:left-1/2 md:-ml-8 shadow-[0_0_15px_rgba(19,182,236,0.3)]">
+                  {index === 0 ? <Briefcase className="text-primary h-6 w-6" /> : index === 1 ? <Code className="text-primary h-6 w-6" /> : <GraduationCap className="text-primary h-6 w-6" />}
+                </div>
+
+                {/* Content Card (Desktop: left or right) */}
+                <div className={`ml-24 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12 md:ml-auto md:text-left'}`}>
+                  <h3 className="text-xl font-bold text-white">{exp.position}</h3>
+                  <div className="text-primary font-medium mb-1">{exp.company}</div>
+                  <div className="text-slate-500 text-sm mb-4 font-mono">{exp.period}</div>
+                  <p className="text-slate-400 text-sm leading-relaxed max-w-md">
+                    {exp.description}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
   );
-}
+};
+
 export default ExperienceSection;

@@ -1,111 +1,108 @@
 "use client"
 import React from 'react'
-import { Badge } from './ui/badge';
-import { Card } from './ui/card';
-import { GaugeIcon, LightbulbIcon, ZapIcon } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Code2, Layout, Smartphone, ShoppingBag } from 'lucide-react';
 
 export default function AboutMe() {
-    const skills = [
-        "Flutter",
-        "Dart",
-        "Firebase Cloud Messaging",
-        "Hive",
-        "Bloc / Riverpod",
-        "Next.js",
-        "React",
-        "TailwindCSS",
-        "Framer Motion",
-        "ShadCN UI",
-        "TypeScript",
-        "HTML5 & CSS3",
-        "Java",
-        "Spring Boot",
-        "Spring Security",
-        "REST APIs",
-        "JWT Auth",
-        "Supabase",
-        "Firebase",
-        "PostgreSQL",
-        "MySQL",
-        "Cloud Firestore",
-        "Git & GitHub",
-        "Vercel",
-        "Android Studio",
-        "VS Code",
-        "Figma",
-        "Postman",
+    const expertise = [
+        {
+            title: "Frontend",
+            icon: <Layout className="text-primary h-6 w-6" />,
+            skills: ["Next.js", "Javascript", "Reactjs", "TypeScript", "Tailwind CSS"],
+            bgIcon: <Layout className="text-primary h-24 w-24 opacity-5 group-hover:opacity-10 transition-opacity" />
+        },
+        {
+            title: "Backend",
+            icon: <Code2 className="text-primary h-6 w-6" />,
+            skills: ["Java 17+", "Spring Boot 3", "PostgreSQL", "Supabase", "MySql"],
+            bgIcon: <Code2 className="text-primary h-24 w-24 opacity-5 group-hover:opacity-10 transition-opacity" />
+        },
+        {
+            title: "Mobile",
+            icon: <Smartphone className="text-primary h-6 w-6" />,
+            skills: ["Flutter", "Dart", "Firebase", "Provider", "Bloc"],
+            bgIcon: <Smartphone className="text-primary h-24 w-24 opacity-5 group-hover:opacity-10 transition-opacity" />
+        },
+        {
+            title: "Shopify Design",
+            icon: <ShoppingBag className="text-primary h-6 w-6" />,
+            skills: ["Liquid", "Theme Setup", "Shopify Apps", "Store UX"],
+            bgIcon: <ShoppingBag className="text-primary h-24 w-24 opacity-5 group-hover:opacity-10 transition-opacity" />
+        }
     ];
 
     return (
-        <section className='w-full h-full flex flex-col items-center justify-center text-center bg-background/90 backdrop-blur-lg shadow-lg p-4 sm:p-8 pt-12 sm:pt-16' id="about">
-            <div className="heading">
-                <h2 className="text-3xl sm:text-4xl bg-gradient-to-r from-accent via-cta to-primary bg-clip-text text-transparent text-shine m-0">About Me</h2>
-            </div>
-            <div id="content" className='flex flex-col md:flex-row justify-between items-center w-full h-full gap-8 !p-0'>
-                <div id="about-me" className="flex items-center justify-center w-full md:w-1/2">
-                    <p className="text-base sm:text-lg text-text-light max-w-xl text-left leading-7 sm:leading-8">
-                        I’m a software engineer who’s all about building sleek, high-impact digital experiences. From crafting intuitive mobile UIs to spinning up scalable backend APIs, I stay locked in on writing clean, maintainable code that actually slaps. I specialize in full-stack development with a focus on performance and visual polish.
+        <section className="py-24 bg-background border-y border-slate-800/50" id="about">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-16">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="text-base text-primary font-semibold tracking-wide uppercase"
+                    >
+                        Expertise
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        className="mt-2 text-3xl leading-8 font-bold tracking-tight text-white sm:text-4xl"
+                    >
+                        Technical Proficiency
+                    </motion.p>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="mt-4 max-w-2xl text-xl text-slate-400 mx-auto"
+                    >
+                        Full-cycle development capabilities from database design to pixel-perfect UI and mobile solutions.
+                    </motion.p>
+                </div>
 
-                        I vibe with <span className="text-accent font-bold">Flutter</span> for building cross-platform mobile apps, <span className="text-cta font-bold">Next.js</span> for modern web development, and <span className="text-primary font-bold">Java/Spring Boot</span> when it’s time to get serious with backend logic. I’m constantly leveling up — whether that’s learning new tools, optimizing dev workflows, or just staying on top of what’s trending in tech.
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {expertise.map((item, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            whileHover={{ y: -5 }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            className="bg-secondary border border-slate-700/50 rounded-xl p-8 hover:border-primary/50 transition-all duration-300 relative overflow-hidden group glass-card"
+                        >
+                            <div className="absolute top-0 right-0 p-4">
+                                {item.bgIcon}
+                            </div>
+                            <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                                {item.icon} {item.title}
+                            </h3>
+                            <div className="flex flex-wrap gap-2">
+                                {item.skills.map((skill, sIndex) => (
+                                    <span
+                                        key={sIndex}
+                                        className="px-3 py-1 rounded bg-slate-800/50 text-slate-300 text-sm font-medium border border-slate-700/50 hover:text-white hover:border-primary/50 cursor-default transition-colors"
+                                    >
+                                        {skill}
+                                    </span>
+                                ))}
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
 
-                        <span className="block italic text-text-muted">
-                            When I’m not in dev mode, I’m either binge-watching C-dramas, vibing to chill beats at 2am, or randomly redesigning my own UI for the ✨ aesthetic ✨. Clean design, smooth UX, and good vibes — that’s the mission.
-                        </span>
+                {/* About Paragraph */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    className="mt-20 max-w-4xl mx-auto text-center"
+                >
+                    <p className="text-lg text-slate-400 leading-relaxed italic">
+                        &quot;I thrive on building sleek, high-impact digital experiences. Whether it&apos;s crafting intuitive mobile UIs or spinning up scalable backend APIs, I stay locked in on writing clean, maintainable code that actually slaps.&quot;
                     </p>
-                </div>
-
-                <div id='skills' className='flex flex-col items-start justify-center gap-4 p-0 sm:p-4 w-full md:w-1/2'>
-                    <h3 className="text-xl sm:text-2xl">My Skills</h3>
-                    <div className="flex flex-wrap gap-2 w-full">
-                        {skills.map((skill, index) => (
-                            <Badge key={index} variant="outline" className="text-xs sm:text-sm font-semibold rounded-4xl">
-                                {skill}
-                            </Badge>
-                        ))}
-                    </div>
-                    {/* Creative, fast learner and efficient card */}
-                    <div className="flex flex-col md:flex-row w-full md:justify-between gap-4 mt-4">
-                        {/* Creative */}
-                        <div className="w-full md:max-w-1/3 p-[2px] rounded-xl bg-gradient-to-r from-accent to-cta">
-                            <Card className="p-4 rounded-xl bg-background shadow-lg flex flex-col items-center text-center h-full">
-                                <span className="text-2xl sm:text-3xl text-accent">
-                                    <LightbulbIcon />
-                                </span>
-                                <h4 className="text-base sm:text-lg font-bold text-primary">Creative</h4>
-                                <p className="text-text-light text-xs sm:text-sm">
-                                    I enjoy crafting fresh ideas and solving problems with unique approaches.
-                                </p>
-                            </Card>
-                        </div>
-
-                        {/* Fast Learner */}
-                        <div className="w-full md:max-w-1/3 p-[2px] rounded-xl bg-gradient-to-r from-cta to-primary">
-                            <Card className="p-4 rounded-xl bg-background shadow-lg flex flex-col items-center text-center h-full">
-                                <span className="text-2xl sm:text-3xl text-cta">
-                                    <ZapIcon />
-                                </span>
-                                <h4 className="text-base sm:text-lg font-bold text-cta">Fast Learner</h4>
-                                <p className="text-text-light text-xs sm:text-sm">
-                                    I quickly adapt to new tools, tech, and challenges.
-                                </p>
-                            </Card>
-                        </div>
-
-                        {/* Efficient */}
-                        <div className="w-full md:max-w-1/3 p-[2px] rounded-xl bg-gradient-to-r from-primary to-accent">
-                            <Card className="p-4 rounded-xl bg-background shadow-lg flex flex-col items-center text-center h-full">
-                                <span className="text-2xl sm:text-3xl text-primary">
-                                    <GaugeIcon />
-                                </span>
-                                <h4 className="text-base sm:text-lg font-bold text-primary">Efficient</h4>
-                                <p className="text-text-light text-xs sm:text-sm">
-                                    I focus on clean code and fast, high-quality delivery.
-                                </p>
-                            </Card>
-                        </div>
-                    </div>
-                </div>
+                </motion.div>
             </div>
         </section>
-    )
+    );
 }

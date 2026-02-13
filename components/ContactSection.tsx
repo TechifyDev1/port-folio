@@ -1,118 +1,120 @@
 "use client"
-
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Mail, MessageSquare, Send } from "lucide-react";
+import { Mail, MessageSquare, Send, Github, Twitter } from "lucide-react";
 
 const ContactSection = () => {
-
-
   return (
-    <section id="contact" className="py-20 px-4">
-      <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 bg-gradient-to-r from-accent via-cta to-primary bg-clip-text text-transparent text-shine text-center">Get In Touch</h2>
-        
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Card className="border-primary/20">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-6 flex items-center">
-                <MessageSquare className="mr-2 h-5 w-5 text-primary" /> Let&#39;s Talk
-              </h3>
-              
-              <form onSubmit={()=>{}} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
-                  <input 
-                    type="text" 
-                    id="name" 
-                    className="w-full p-4 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-transparent" 
-                    placeholder="Your name"
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
-                  <input 
-                    type="email" 
-                    id="email" 
-                    className="w-full p-4 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-transparent" 
-                    placeholder="Your email"
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
-                  <textarea 
-                    id="message" 
-                    rows={5} 
-                    className="w-full p-4 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-transparent" 
-                    placeholder="How can I help you?"
-                    required
-                  ></textarea>
-                </div>
-                
-                <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
-                  Send Message <Send className="ml-2 h-4 w-4" />
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-          
-          <div className="flex flex-col justify-center">
-            <div className="space-y-8">
+    <section id="contact" className="py-24 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-base text-primary font-semibold tracking-wide uppercase"
+          >
+            Connect
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-2 text-3xl leading-8 font-bold tracking-tight text-white sm:text-4xl"
+          >
+            Get In Touch
+          </motion.p>
+        </div>
+
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="bg-secondary/40 backdrop-blur-md rounded-xl p-8 border border-slate-700/50 glass-card"
+          >
+            <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+              <MessageSquare className="h-6 w-6 text-primary" /> Let&apos;s Build
+            </h3>
+
+            <form action="https://app.proforms.top/f/pr88254f6b" method='POST' className="space-y-4">
               <div>
-                <h3 className="text-2xl font-bold mb-4">Contact Information</h3>
-                <p className="text-muted-foreground mb-6">
-                  Feel free to reach out if you&#39;re looking for a developer, have a question, or just want to connect.
-                </p>
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700/50 rounded-lg focus:outline-none focus:border-primary text-white transition-colors"
+                  required
+                  id='name'
+                />
               </div>
-              
               <div>
-                <div className="flex items-start mb-4">
-                  <Mail className="h-5 w-5 text-primary mt-1 mr-3" />
-                  <div>
-                    <h4 className="font-semibold">Email</h4>
-                    <a href="mailto:techifydev1@gmail.com" className="text-muted-foreground hover:text-primary link-underline">
-                      techifydev1@gmail.com
-                    </a>
+                <input
+                  type="email"
+                  placeholder="Your Email"
+                  className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700/50 rounded-lg focus:outline-none focus:border-primary text-white transition-colors"
+                  required
+                  id='email'
+                />
+              </div>
+              <div>
+                <textarea
+                  rows={4}
+                  placeholder="Tell me about your project..."
+                  className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700/50 rounded-lg focus:outline-none focus:border-primary text-white transition-colors resize-none"
+                  required
+                  id='message'
+                ></textarea>
+              </div>
+              <Button type="submit" className="w-full py-6 bg-primary hover:bg-white hover:text-primary text-black font-bold rounded-lg transition-all duration-300">
+                Send Message <Send className="ml-2 h-4 w-4" />
+              </Button>
+            </form>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col justify-center space-y-8"
+          >
+            <div>
+              <h4 className="text-xl font-bold text-white mb-4">Contact Information</h4>
+              <p className="text-slate-400 leading-relaxed mb-6">
+                Looking for a full-stack developer to help bring your ideas to life? Drop me a message or find me on social media.
+              </p>
+
+              <div className="space-y-4">
+                <a href="mailto:techifydev1@gmail.com" className="flex items-center gap-4 group">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors">
+                    <Mail className="h-5 w-5 text-primary group-hover:text-black" />
                   </div>
-                </div>
-              </div>
-              
-              <div>
-                <h4 className="font-semibold mb-3">Connect with me</h4>
-                <div className="flex space-x-4">
-                  <a 
-                    href="https://github.com/TechifyDev1" 
-                    className="h-10 w-10 rounded-full bg-background/90 backdrop-blur-lg flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                  </a>
-                  <a 
-                    href="#" 
-                    className="h-10 w-10 rounded-full bg-background/90 backdrop-blur-lg flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                  </a>
-                    <a 
-                    href="https://x.com/techifydev_1" 
-                    className="h-10 w-10 rounded-full bg-background/90 backdrop-blur-lg flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
-                    >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
-                    </a>
-                </div>
-              </div>
-              
-              <div>
-                <p className="text-sm text-muted-foreground">
-                  Currently based in <span className="font-semibold">San Francisco, CA</span>
-                </p>
+                  <div>
+                    <div className="text-xs text-slate-500 font-mono">Mail Me</div>
+                    <div className="text-white font-medium group-hover:text-primary transition-colors">techifydev1@gmail.com</div>
+                  </div>
+                </a>
               </div>
             </div>
-          </div>
+
+            <div>
+              <h4 className="text-lg font-bold text-white mb-4">Follow Me</h4>
+              <div className="flex gap-4">
+                {[
+                  { icon: <Github />, href: "https://github.com/TechifyDev1" },
+                  { icon: <Twitter />, href: "https://x.com/techifydev_1" }
+                ].map((social, i) => (
+                  <a
+                    key={i}
+                    href={social.href}
+                    className="w-12 h-12 rounded-lg bg-secondary/80 border border-slate-700/50 flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary transition-all duration-300 shadow-lg"
+                  >
+                    {social.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

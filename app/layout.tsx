@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     description:
       "I design and build modern web & mobile apps with Flutter, Next.js, and Java.",
     images: ["/avatar.png"],
-    creator: "@yourhandle"
+    creator: "@techifydev_1"
   },
   icons: {
     icon: "/avatar.png",
@@ -77,7 +77,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-            <Head>
+      <Head>
         <title>TechifyDev | Full-Stack Developer</title>
         <meta name="description" content="TechifyDev is a full-stack software engineer specializing in Flutter apps, Next.js websites, and Java backends." />
         <meta name="keywords" content="TechifyDev, Flutter Developer, Next.js, Java, Spring Boot, Full Stack Developer, Mobile App Developer, Web Developer, Supabase, TailwindCSS" />

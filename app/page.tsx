@@ -11,12 +11,6 @@ export default function Home() {
     <>
     <main className="relative bg-black-100">
       <NavBar />
-      {/* <div className="flex flex-wrap gap-2">
-        <Badge variant="default">React</Badge>
-        <Badge variant="secondary">Next.js</Badge>
-        <Badge variant="outline">Tailwind CSS</Badge>
-        <Badge variant="default">Firebase</Badge>
-      </div> */}
       <HeroSection />
       <AboutMe />
       <ProjectsSection />

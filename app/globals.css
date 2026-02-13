@@ -2,25 +2,26 @@
 
 
 @theme {
-  --color-primary: #6366F1;
-  --color-primary-dark: #4F46E5;
-  --color-accent: #A855F7;
-  --color-accent-soft: #D8B4FE;
-  --color-secondary: #818CF8;
-  --color-background: #0F172A;
-  --color-card-bg: #1E293B;
-  --color-text-light: #F8FAFC;
-  --color-text-muted: #94A3B8;
-  --color-cta: #22D3EE;
-  --color-cta-hover: #06B6D4;
+  --color-primary: #13b6ec;
+  --color-primary-dark: #0ea5d7;
+  --color-accent: #a855f7;
+  --color-accent-soft: #c084fc;
+  --color-secondary: #16262c;
+  --color-background: #101d22;
+  --color-card-bg: #16262c;
+  --color-text-light: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --color-cta: #13b6ec;
+  --color-cta-hover: #0ea5d7;
   --color-black: #000000;
-  --color-black-100: #000319;
+  --color-black-100: #0d151a;
 
-  --font-heading: "Poppins", sans-serif;
+  --font-heading: "Inter", sans-serif;
   --font-body: "Inter", sans-serif;
 
   --radius-xl: 1rem;
   --radius-2xl: 1.5rem;
+  --radius-4xl: 2.5rem;
 }
 
 body {
@@ -33,19 +34,63 @@ body {
   scroll-behavior: smooth;
 }
 
-@keyframes shine {
-  0% {
-    background-position: 100%;
-  }
-  100% {
-    background-position: -100%;
-  }
+/* Glassmorphism Classes */
+.glass-nav {
+  background: rgba(16, 29, 34, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(19, 182, 236, 0.1);
 }
+
+.glass-card {
+  background: rgba(22, 38, 44, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(19, 182, 236, 0.2);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Starfield Animation */
+@keyframes twinkle {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+  100% { opacity: 0.3; }
+}
+
+.star-field {
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(19, 182, 236, 0.2), transparent),
+    radial-gradient(2px 2px at 60px 70px, rgba(19, 182, 236, 0.15), transparent),
+    radial-gradient(1px 1px at 50px 50px, rgba(255, 255, 255, 0.3), transparent);
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: twinkle 10s infinite;
+}
+
+@keyframes shine {
+  0% { background-position: 100%; }
+  100% { background-position: -100%; }
+}
+
 .text-shine {
   background-size: 400%;
   animation: shine 3s linear infinite;
-  /* display: inline-block; */
 }
-  /* .project-card {
-    @apply relative overflow-hidden rounded-2xl transition-all duration-300 hover:shadow-xl;
-  } */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background); 
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-card-bg); 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary); 
+}

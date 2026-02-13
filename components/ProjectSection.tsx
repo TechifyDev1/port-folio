@@ -1,80 +1,134 @@
-import React from 'react';
-import { Card, CardContent } from "@/components/ui/card";
+"use client"
+import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
-import { Github, Link } from "lucide-react";
+import { Github, Link, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 const projects = [
   {
-    title: 'E-commerce Platform',
-    description: 'A modern e-commerce platform built with Next.js, featuring product search, filtering, cart functionality, and seamless checkout experience.',
-    image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=600&h=400',
-    tags: ['Next.js', 'Redux', 'Stripe', 'Tailwind CSS'],
-    liveLink: '#',
-    githubLink: '#'
+    title: 'Postra Blog Platform',
+    description: 'A full-stack, production-ready blogging platform designed for performance and scalability. Built with a modern Next.js frontend and a robust Spring Boot backend, Postra delivers fast server-side rendering, secure authentication, dynamic content management, and SEO optimization. Crafted to provide a seamless writing and reading experience with clean UI, responsive design, and optimized API architecture.',
+    image: "/postra.png",
+    tags: ['Next.js','Spring-Boot','ReactJs', 'Javascript', 'Java', 'React Context', 'CSS3'],
+    liveLink: 'https://postra-frontend.vercel.app',
+    githubFrontend: 'https://github.com/TechifyDev1/postra-frontend',
+    githubBackend: 'https://github.com/TechifyDev1/postra-backend'
   },
   {
-    title: 'Task Management App',
-    description: 'A collaborative task management application with real-time updates using WebSockets, drag-and-drop functionality, and team collaboration features.',
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&h=400',
-    tags: ['React', 'TypeScript', 'Firebase', 'Framer Motion'],
-    liveLink: '#',
-    githubLink: '#'
+    title: 'AI-Powered Transaction Tracker',
+    description: 'An intelligent expense tracking system that goes beyond manual logging. Powered by AI-driven insights, this app helps users categorize spending, monitor financial habits, and gain smarter control over their money. Built with Flutter for cross-platform performance and backed by a scalable architecture, it combines real-time data syncing with intuitive financial analytics for a seamless money management experience.',
+    image: '/trackr.png',
+    tags: ['Flutter', 'Dart', 'Riverpod', 'Firebase', 'Nextjs', 'Javascript'],
+    liveLink: 'https://drive.google.com/file/d/1WXFAfqETNqWglDULL6EGeHl2b63mZJoe/view?usp=drive_link',
+    githubFrontend: 'https://github.com/TechifyDev1/trackr',
+    githubBackend: 'https://github.com/TechifyDev1/trackr-backend'
   },
   {
-    title: 'Finance Dashboard',
-    description: 'An interactive financial dashboard with data visualization, reporting tools, and personalized insights for tracking expenses and investments.',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&h=400',
-    tags: ['Next.js', 'Recharts', 'Auth0', 'Tailwind CSS'],
-    liveLink: '#',
-    githubLink: '#'
+    title: 'Shortly – URL Shortener',
+    description: 'A lightweight and efficient URL shortening application built for speed and simplicity. Designed with a clean, minimal interface, Shortly enables users to generate shareable short links instantly. Focused on usability and responsive design, it demonstrates practical frontend architecture and real-world API integration for handling dynamic link generation.',
+    image: '/shortly.png',
+    tags: ['React.js', 'Javascript', 'CSS3'],
+    liveLink: 'https://shortly-ten.vercel.app/',
+    githubFrontend: 'https://github.com/TechifyDev1/shortly',
+    githubBackend: 'https://github.com/TechifyDev1'
   }
 ];
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-20 px-4">
-      <div className="container mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-10">
-          My Projects
-        </h2>        
+    <section id="projects" className="py-24 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-base text-primary font-semibold tracking-wide uppercase"
+            >
+              Portfolio
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="mt-2 text-3xl leading-8 font-bold tracking-tight text-white sm:text-4xl"
+            >
+              Featured Projects
+            </motion.p>
+          </div>
+          <motion.a
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            href="https://github.com/TechifyDev1"
+            className="text-slate-400 hover:text-primary transition-colors flex items-center gap-1 group"
+          >
+            See all on GitHub
+            <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+          </motion.a>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="relative overflow-hidden rounded-2xl transition-all duration-300 hover:shadow-xl group hover:scale-[1.02] ">
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
+            <motion.article
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -10 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-secondary/40 backdrop-blur-sm rounded-xl overflow-hidden border border-slate-700/50 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(19,182,236,0.1)] transition-all duration-500 group flex flex-col h-full glass-card"
+            >
+              <div className="h-52 overflow-hidden relative">
+                <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-transparent transition-colors z-10"></div>
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={600}
+                  height={400}
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-4 flex justify-end gap-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <Button size="icon" variant="secondary" asChild className="rounded-full">
-                    <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                      <Github className="h-4 w-4" />
+                <div className="absolute bottom-4 right-4 z-20 flex gap-2 translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
+                  <Button size="icon" variant="secondary" asChild className="rounded-full bg-black/50 backdrop-blur-md border-white/10 hover:bg-primary" title="Frontend Repository">
+                    <a href={project.githubFrontend} target="_blank" rel="noopener noreferrer">
+                      <div className="relative">
+                        <Github className="h-4 w-4" />
+                        <span className="absolute -top-1 -right-1 text-[8px] bg-primary text-black font-bold px-0.5 rounded-sm">F</span>
+                      </div>
                     </a>
                   </Button>
-                  <Button size="icon" variant="secondary" asChild className="rounded-full">
+                  <Button size="icon" variant="secondary" asChild className="rounded-full bg-black/50 backdrop-blur-md border-white/10 hover:bg-primary" title="Backend Repository">
+                    <a href={project.githubBackend} target="_blank" rel="noopener noreferrer">
+                      <div className="relative">
+                        <Github className="h-4 w-4" />
+                        <span className="absolute -top-1 -right-1 text-[8px] bg-accent text-white font-bold px-0.5 rounded-sm">B</span>
+                      </div>
+                    </a>
+                  </Button>
+                  <Button size="icon" variant="secondary" asChild className="rounded-full bg-black/50 backdrop-blur-md border-white/10 hover:bg-primary" title="Live Demo">
                     <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
                       <Link className="h-4 w-4" />
                     </a>
                   </Button>
                 </div>
               </div>
-              
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-muted-foreground mb-4 line-clamp-3">
+
+              <div className="p-6 flex-1 flex flex-col">
+                <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors mb-2">{project.title}</h3>
+                <p className="text-slate-400 mb-6 text-sm leading-relaxed flex-1">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap mt-auto pt-2">
+                <div className="flex flex-wrap gap-2 mt-auto">
                   {project.tags.map((tag) => (
-                    <span key={tag} className="inline-block px-3 py-1 text-xs font-medium rounded-full bg-secondary text-foreground m-1 transition-all hover:bg-primary hover:text-primary-foreground">
+                    <span
+                      key={tag}
+                      className="text-[10px] uppercase tracking-wider font-bold text-primary bg-primary/10 px-2 py-1 rounded"
+                    >
                       {tag}
                     </span>
                   ))}
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </motion.article>
           ))}
         </div>
       </div>
