@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 // app/layout.tsx or app/page.tsx
 
 export const metadata: Metadata = {
-  title: "TechifyDev | Full-Stack Developer",
+  title: "TechifyDev | Full-Stack Developer & Shopify Designer",
   description:
-    "TechifyDev is a full-stack software engineer specializing in Flutter apps, Next.js websites, and robust Java/Spring Boot backends. Let's build something beautiful, fast, and functional.",
+    "TechifyDev is a senior full-stack software engineer specializing in Flutter apps, Next.js websites, and Shopify store design. Explore my portfolio of scalable digital solutions.",
   keywords: [
     "TechifyDev",
     "Flutter Developer",
@@ -36,9 +36,9 @@ export const metadata: Metadata = {
   authors: [{ name: "TechifyDev", url: "https://port-folio-9dxv.vercel.app" }],
   creator: "TechifyDev",
   openGraph: {
-    title: "TechifyDev | Full-Stack Engineer",
+    title: "TechifyDev | Full-Stack Developer & Shopify Designer",
     description:
-      "Building clean mobile & web experiences with Flutter, Next.js, and Java backends.",
+      "Building clean mobile & web experiences with Flutter, Next.js, and Shopify Store Design.",
     url: "https://port-folio-three-amber.vercel.app",
     siteName: "TechifyDev",
     images: [
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
         url: "/avatar.png",
         width: 800,
         height: 600,
-        alt: "TechifyDev Avatar"
+        alt: "TechifyDev Portfolio"
       }
     ],
     locale: "en_US",
@@ -54,9 +54,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "TechifyDev | Full-Stack Developer",
+    title: "TechifyDev | Full-Stack Developer & Shopify Designer",
     description:
-      "I design and build modern web & mobile apps with Flutter, Next.js, and Java.",
+      "I design and build modern web & mobile apps with Flutter, Next.js, and Shopify.",
     images: ["/avatar.png"],
     creator: "@techifydev_1"
   },
@@ -98,13 +98,13 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "TechifyDev",
-              url: "https://port-folio-9dxv.vercel.app",
-              jobTitle: "Full-Stack Developer",
+              url: "https://port-folio-three-amber.vercel.app",
+              jobTitle: "Full-Stack Developer & Shopify Designer",
               sameAs: [
                 "https://github.com/TechifyDev1",
                 "https://twitter.com/techifydev_1"
               ],
-              description: "Full-stack software engineer specializing in Flutter, Next.js, and Java/Spring Boot."
+              description: "Full-stack software engineer specializing in Flutter, Next.js, and Shopify Store Design."
             })
           }}
         />
