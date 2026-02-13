@@ -66,7 +66,10 @@ export const metadata: Metadata = {
     shortcut: "/avatar.png",
     apple: "/avatar.png"
   },
-  manifest: "/site.webmanifest"
+  manifest: "/site.webmanifest",
+  verification: {
+    google: "jjegQ2Hi3U5KA2rTXyOj3vbCCzWUGW-cTwBSKUaWz3c"
+  }
 };
 
 
@@ -77,28 +80,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <title>TechifyDev | Full-Stack Developer</title>
-        <meta name="description" content="TechifyDev is a full-stack software engineer specializing in Flutter apps, Next.js websites, and Java backends." />
-        <meta name="keywords" content="TechifyDev, Flutter Developer, Next.js, Java, Spring Boot, Full Stack Developer, Mobile App Developer, Web Developer, Supabase, TailwindCSS" />
-        <meta name="author" content="TechifyDev" />
-
-        {/* Open Graph / Facebook */}
-        <meta property="og:title" content="TechifyDev | Full-Stack Engineer" />
-        <meta property="og:description" content="Building clean mobile & web experiences with Flutter, Next.js, and Java backends." />
-        <meta property="og:image" content="/avatar.png" />
-        <meta property="og:url" content="https://port-folio-9dxv.vercel.app" />
-        <meta property="og:type" content="website" />
-        <meta name="google-site-verification" content="jjegQ2Hi3U5KA2rTXyOj3vbCCzWUGW-cTwBSKUaWz3c" />
-
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="TechifyDev | Full-Stack Developer" />
-        <meta name="twitter:description" content="I design and build modern web & mobile apps with Flutter, Next.js, and Java." />
-        <meta name="twitter:image" content="/avatar.png" />
-
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
