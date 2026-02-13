@@ -9,7 +9,7 @@ const projects = [
     title: 'Postra Blog Platform',
     description: 'A full-stack, production-ready blogging platform designed for performance and scalability. Built with a modern Next.js frontend and a robust Spring Boot backend, Postra delivers fast server-side rendering, secure authentication, dynamic content management, and SEO optimization. Crafted to provide a seamless writing and reading experience with clean UI, responsive design, and optimized API architecture.',
     image: "/postra.png",
-    tags: ['Next.js','Spring-Boot','ReactJs', 'Javascript', 'Java', 'React Context', 'CSS3'],
+    tags: ['Next.js', 'Spring-Boot', 'ReactJs', 'Javascript', 'Java', 'React Context', 'CSS3'],
     liveLink: 'https://postra-frontend.vercel.app',
     githubFrontend: 'https://github.com/TechifyDev1/postra-frontend',
     githubBackend: 'https://github.com/TechifyDev1/postra-backend'
@@ -76,19 +76,28 @@ const ProjectsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{ y: -10 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-secondary/40 backdrop-blur-sm rounded-xl overflow-hidden border border-slate-700/50 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(19,182,236,0.1)] transition-all duration-500 group flex flex-col h-full glass-card"
+              className="bg-secondary/40 backdrop-blur-sm rounded-xl overflow-hidden border border-slate-700/50 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(19,182,236,0.1)] transition-all duration-500 group flex flex-col h-full glass-card relative"
             >
+              {/* Card Link Overlay */}
+              <a
+                href={project.liveLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 z-10"
+                aria-label={`View ${project.title} live site`}
+              />
+
               <div className="h-52 overflow-hidden relative">
-                <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-transparent transition-colors z-10"></div>
+                <div className="absolute inset-0 bg-slate-900/40 lg:group-hover:bg-transparent transition-colors z-20 pointer-events-none"></div>
                 <Image
                   src={project.image}
                   alt={project.title}
                   width={600}
                   height={400}
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover transform lg:group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute bottom-4 right-4 z-20 flex gap-2 translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
-                  <Button size="icon" variant="secondary" asChild className="rounded-full bg-black/50 backdrop-blur-md border-white/10 hover:bg-primary" title="Frontend Repository">
+                <div className="absolute bottom-4 right-4 z-30 flex gap-2 translate-y-0 lg:translate-y-12 lg:group-hover:translate-y-0 transition-transform duration-300">
+                  <Button size="icon" variant="secondary" asChild className="rounded-full bg-black/50 backdrop-blur-md border-white/10 hover:bg-primary pointer-events-auto" title="Frontend Repository">
                     <a href={project.githubFrontend} target="_blank" rel="noopener noreferrer">
                       <div className="relative">
                         <Github className="h-4 w-4" />
@@ -96,7 +105,7 @@ const ProjectsSection = () => {
                       </div>
                     </a>
                   </Button>
-                  <Button size="icon" variant="secondary" asChild className="rounded-full bg-black/50 backdrop-blur-md border-white/10 hover:bg-primary" title="Backend Repository">
+                  <Button size="icon" variant="secondary" asChild className="rounded-full bg-black/50 backdrop-blur-md border-white/10 hover:bg-primary pointer-events-auto" title="Backend Repository">
                     <a href={project.githubBackend} target="_blank" rel="noopener noreferrer">
                       <div className="relative">
                         <Github className="h-4 w-4" />
@@ -104,7 +113,7 @@ const ProjectsSection = () => {
                       </div>
                     </a>
                   </Button>
-                  <Button size="icon" variant="secondary" asChild className="rounded-full bg-black/50 backdrop-blur-md border-white/10 hover:bg-primary" title="Live Demo">
+                  <Button size="icon" variant="secondary" asChild className="rounded-full bg-black/50 backdrop-blur-md border-white/10 hover:bg-primary pointer-events-auto" title="Live Demo">
                     <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
                       <Link className="h-4 w-4" />
                     </a>
@@ -112,8 +121,8 @@ const ProjectsSection = () => {
                 </div>
               </div>
 
-              <div className="p-6 flex-1 flex flex-col">
-                <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors mb-2">{project.title}</h3>
+              <div className="p-6 flex-1 flex flex-col relative z-20 pointer-events-none">
+                <h3 className="text-xl font-bold text-white lg:group-hover:text-primary transition-colors mb-2">{project.title}</h3>
                 <p className="text-slate-400 mb-6 text-sm leading-relaxed flex-1">
                   {project.description}
                 </p>
