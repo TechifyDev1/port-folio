@@ -89,6 +89,7 @@ export default function RootLayout({
         <meta property="og:image" content="/avatar.png" />
         <meta property="og:url" content="https://port-folio-9dxv.vercel.app" />
         <meta property="og:type" content="website" />
+        <meta name="google-site-verification" content="jjegQ2Hi3U5KA2rTXyOj3vbCCzWUGW-cTwBSKUaWz3c" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
