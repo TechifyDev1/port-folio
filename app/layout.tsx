@@ -60,15 +60,24 @@ export const metadata: Metadata = {
     images: ["/avatar.png"],
     creator: "@techifydev_1"
   },
-  icons: {
-    icon: "/avatar.png",
-    shortcut: "/avatar.png",
-    apple: "/avatar.png"
-  },
   manifest: "/site.webmanifest",
   verification: {
     google: "jjegQ2Hi3U5KA2rTXyOj3vbCCzWUGW-cTwBSKUaWz3c"
-  }
+  },
+  alternates: {
+    canonical: "https://port-folio-9dxv.vercel.app"
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 
@@ -82,6 +91,23 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "TechifyDev",
+              url: "https://port-folio-9dxv.vercel.app",
+              jobTitle: "Full-Stack Developer",
+              sameAs: [
+                "https://github.com/TechifyDev1",
+                "https://twitter.com/techifydev_1"
+              ],
+              description: "Full-stack software engineer specializing in Flutter, Next.js, and Java/Spring Boot."
+            })
+          }}
+        />
         {children}
       </body>
     </html>
