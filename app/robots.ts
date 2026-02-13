@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/private/',
         },
-        sitemap: 'https://port-folio-9dxv.vercel.app/sitemap.xml',
+        sitemap: 'https://port-folio-three-amber.vercel.app/sitemap.xml',
     };
 }

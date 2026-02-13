@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: "TechifyDev | Full-Stack Engineer",
     description:
       "Building clean mobile & web experiences with Flutter, Next.js, and Java backends.",
-    url: "https://port-folio-9dxv.vercel.app",
+    url: "https://port-folio-three-amber.vercel.app",
     siteName: "TechifyDev",
     images: [
       {
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     google: "jjegQ2Hi3U5KA2rTXyOj3vbCCzWUGW-cTwBSKUaWz3c"
   },
   alternates: {
-    canonical: "https://port-folio-9dxv.vercel.app"
+    canonical: "https://port-folio-three-amber.vercel.app"
   },
   robots: {
     index: true,
